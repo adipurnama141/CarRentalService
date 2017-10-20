@@ -1,0 +1,403 @@
+<!--
+ 
+(c) Kelompok CarRental PPLS
+2017-10-20
+Car Rental Service
+
+Online WSDL 1.1 SOAP generator 0.2
+Julien Blitte
+ 
+-->
+<definitions xmlns:tns="id.kcrsppls.crs.wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="id.kcrsppls.crs.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="Car Rental Service" targetNamespace="id.kcrsppls.crs.wsdl">
+<!--  definition of datatypes  -->
+<types>
+<schema xmlns="http://www.w3.org/2000/10/XMLSchema" targetNamespace="id.kcrsppls.crs.xsd">
+<element name="nama_idkota">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="merk_jenis_idmobil">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="infomobil">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="statusmobil">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="listpeminjaman">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="rangetanggal">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="infotransaksi">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="databooking">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="dataperpanjang">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="datamobil">
+<complexType>
+<all>
+<element name="value" type="string"/>
+</all>
+</complexType>
+</element>
+<element name="idkota">
+<complexType>
+<all>
+<element name="value" type="int"/>
+</all>
+</complexType>
+</element>
+<element name="idmobil">
+<complexType>
+<all>
+<element name="value" type="int"/>
+</all>
+</complexType>
+</element>
+<element name="idtransaksi">
+<complexType>
+<all>
+<element name="value" type="int"/>
+</all>
+</complexType>
+</element>
+<element name="success">
+<complexType>
+<all>
+<element name="value" type="int"/>
+</all>
+</complexType>
+</element>
+<element name="void">
+<complexType>
+<sequence/>
+</complexType>
+</element>
+</schema>
+</types>
+<!--  response messages  -->
+<message name="returns_nama_idkota">
+<part name="nama_idkota" type="xsd:nama_idkota"/>
+</message>
+<message name="returns_merk_jenis_idmobil">
+<part name="merk_jenis_idmobil" type="xsd:merk_jenis_idmobil"/>
+</message>
+<message name="returns_infomobil">
+<part name="infomobil" type="xsd:infomobil"/>
+</message>
+<message name="returns_success">
+<part name="success" type="xsd:success"/>
+</message>
+<message name="returns_statusmobil">
+<part name="statusmobil" type="xsd:statusmobil"/>
+</message>
+<message name="returns_listpeminjaman">
+<part name="listpeminjaman" type="xsd:listpeminjaman"/>
+</message>
+<message name="returns_infotransaksi">
+<part name="infotransaksi" type="xsd:infotransaksi"/>
+</message>
+<message name="returns_idtransaksi">
+<part name="idtransaksi" type="xsd:idtransaksi"/>
+</message>
+<!--  request messages  -->
+<message name="LAK">
+<part name="void" type="xsd:void"/>
+</message>
+<message name="LAMK">
+<part name="idkota" type="xsd:idkota"/>
+</message>
+<message name="GM">
+<part name="idmobil" type="xsd:idmobil"/>
+</message>
+<message name="AM">
+<part name="datamobil" type="xsd:datamobil"/>
+</message>
+<message name="EM">
+<part name="idmobil" type="xsd:idmobil"/>
+<part name="datamobil" type="xsd:datamobil"/>
+</message>
+<message name="GSM">
+<part name="idmobil" type="xsd:idmobil"/>
+</message>
+<message name="ESM">
+<part name="idmobil" type="xsd:idmobil"/>
+<part name="statusmobil" type="xsd:statusmobil"/>
+</message>
+<message name="LP">
+<part name="rangetanggal" type="xsd:rangetanggal"/>
+</message>
+<message name="GP">
+<part name="idtransaksi" type="xsd:idtransaksi"/>
+</message>
+<message name="AP">
+<part name="infotransaksi" type="xsd:infotransaksi"/>
+</message>
+<message name="EP">
+<part name="idtransaksi" type="xsd:idtransaksi"/>
+<part name="infotransaksi" type="xsd:infotransaksi"/>
+</message>
+<message name="BC">
+<part name="databooking" type="xsd:databooking"/>
+</message>
+<message name="CB">
+<part name="idtransaksi" type="xsd:idtransaksi"/>
+</message>
+<message name="KM">
+<part name="idtransaksi" type="xsd:idtransaksi"/>
+</message>
+<message name="PP">
+<part name="idtransaksi" type="xsd:idtransaksi"/>
+<part name="dataperpanjang" type="xsd:dataperpanjang"/>
+</message>
+<!--  server's services  -->
+<portType name="CarRentalService">
+<operation name="LAK">
+<input message="tns:LAK"/>
+<output message="tns:returns_nama_idkota"/>
+</operation>
+<operation name="LAMK">
+<input message="tns:LAMK"/>
+<output message="tns:returns_merk_jenis_idmobil"/>
+</operation>
+<operation name="GM">
+<input message="tns:GM"/>
+<output message="tns:returns_infomobil"/>
+</operation>
+<operation name="AM">
+<input message="tns:AM"/>
+<output message="tns:returns_success"/>
+</operation>
+<operation name="EM">
+<input message="tns:EM"/>
+<output message="tns:returns_success"/>
+</operation>
+<operation name="GSM">
+<input message="tns:GSM"/>
+<output message="tns:returns_statusmobil"/>
+</operation>
+<operation name="ESM">
+<input message="tns:ESM"/>
+<output message="tns:returns_success"/>
+</operation>
+<operation name="LP">
+<input message="tns:LP"/>
+<output message="tns:returns_listpeminjaman"/>
+</operation>
+<operation name="GP">
+<input message="tns:GP"/>
+<output message="tns:returns_infotransaksi"/>
+</operation>
+<operation name="AP">
+<input message="tns:AP"/>
+<output message="tns:returns_success"/>
+</operation>
+<operation name="EP">
+<input message="tns:EP"/>
+<output message="tns:returns_success"/>
+</operation>
+<operation name="BC">
+<input message="tns:BC"/>
+<output message="tns:returns_idtransaksi"/>
+</operation>
+<operation name="CB">
+<input message="tns:CB"/>
+<output message="tns:returns_success"/>
+</operation>
+<operation name="KM">
+<input message="tns:KM"/>
+<output message="tns:returns_success"/>
+</operation>
+<operation name="PP">
+<input message="tns:PP"/>
+<output message="tns:returns_success"/>
+</operation>
+</portType>
+<!--  server encoding  -->
+<binding name="CarRentalService_webservices" type="tns:CarRentalService">
+<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="LAK">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#LAK"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="LAMK">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#LAMK"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="GM">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#GM"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="AM">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#AM"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="EM">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#EM"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="GSM">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#GSM"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="ESM">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#ESM"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="LP">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#LP"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="GP">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#GP"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="AP">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#AP"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="EP">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#EP"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="BC">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#BC"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="CB">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#CB"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="KM">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#KM"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="PP">
+<soap:operation soapAction="urn:xmethods-delayed-quotes#PP"/>
+<input>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:xmethods-delayed-quotes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+</binding>
+<!--  access to service provider  -->
+<service name="CRS">
+<port name="CRS_0" binding="CarRentalService_webservices">
+<soap:address location="http://127.0.0.1/endpoint.php"/>
+</port>
+</service>
+</definitions>
